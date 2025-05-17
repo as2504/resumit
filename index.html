@@ -321,11 +321,11 @@
         // Firebase configuration
 
         // Uncomment in case of runtime failure
-        // import { initializeApp } from "firebase/app";
-        // import { getAnalytics } from "firebase/analytics";
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";
         // Initialize Firebase
-        // const app = initializeApp(firebaseConfig);
-        // const analytics = getAnalytics(app);
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
         const firebaseConfig = {
             apiKey: "AIzaSyAd3NwKAq3f-efOBAPUSGFVCUvKGI0Bg-I",
             authDomain: "resumit-83dcb.firebaseapp.com",

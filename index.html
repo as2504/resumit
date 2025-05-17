@@ -318,28 +318,73 @@
     </div>
 
     <script>
-        // Firebase configuration
- import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-        // Uncomment in case of runtime failure
-        import { initializeApp } from "firebase/app";
-        import { getAnalytics } from "firebase/analytics";
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const firebaseConfig = {
-            apiKey: "AIzaSyAd3NwKAq3f-efOBAPUSGFVCUvKGI0Bg-I",
+
+  // Firebase configuration and initialization
+    const firebaseConfig = {
+         apiKey: "AIzaSyAd3NwKAq3f-efOBAPUSGFVCUvKGI0Bg-I",
             authDomain: "resumit-83dcb.firebaseapp.com",
             projectId: "resumit-83dcb",
             storageBucket: "resumit-83dcb.firebasestorage.app",
             messagingSenderId: "692749209487",
             appId: "1:692749209487:web:7dca8fa751a203301545fa",
             measurementId: "G-8W4MBD2RQ0"
-        };
+    };
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // Remove these import statements (they're not needed with compat version)
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    // import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+    // import { initializeApp } from "firebase/app";
+    // import { getAnalytics } from "firebase/analytics";
+
+    // Form navigation (keep your existing code)
+    let currentSection = 1;
+    // ... rest of your form navigation code ...
+
+    // Modify the form submission handler
+    document.getElementById('profileForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading spinner
+        document.getElementById('loadingSpinner').classList.remove('hidden');
+        
+        // Prepare form data (keep your existing data processing code)
+        // ... your data collection code ...
+
+        // Generate a unique ID for this profile
+        const profileId = generateUniqueId();
+        
+        // Save to Firebase Realtime Database
+        database.ref('profiles/' + profileId).set(data)
+            .then(() => {
+                // Hide loading spinner and show success
+                document.getElementById('loadingSpinner').classList.add('hidden');
+                showModal();
+                // Reset form
+                this.reset();
+                skills.length = 0;
+                updateSkillsDisplay();
+                // Reset to first section
+                document.querySelectorAll('.form-section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                document.getElementById('section-1').classList.remove('hidden');
+                currentSection = 1;
+                updateProgressBar();
+                updateStepIndicator();
+            })
+            .catch((error) => {
+                console.error('Error saving profile:', error);
+                document.getElementById('loadingSpinner').classList.add('hidden');
+                alert('There was an error saving your profile. Please try again.');
+            });
+    });
+
+        
+
 
         // Form navigation
         let currentSection = 1;

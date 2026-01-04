@@ -1,0 +1,177 @@
+
+\documentclass[a4paper,8pt]{article}
+
+\usepackage{parskip} 
+\usepackage{hologo}
+\usepackage{fontspec}
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9, top=.4in, bottom=.4in]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.42\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{1pt}{2pt}{2pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\color[HTML]{110223}%{1C033C}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+% \usepackage{times}
+
+% For underline
+\usepackage[normalem]{ulem}
+
+\setmainfont{Arial}  % Set it to whatever you like
+
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+% 01 Start: My details
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\color[HTML]{1C033C} \Huge{Sumit Kumbhkarn} \\[6pt]
+\\
+\textcolor[HTML]{371e77}{{{{\faEnvelope} sumitskmh38@gmail.com}} $|$}
+\textcolor[HTML]{371e77}{{{\faMobile} 93700 59280}}
+\textcolor[HTML]{371e77}{{{\faMapMarker} Pune}}
+\textcolor[HTML]{371e77}{\underline{{\raisebox{-0.05\height}{\faGithub} github.com/as2504}} $|$}
+\textcolor[HTML]{371e77}{\underline{{\raisebox{-0.05\height}{\faLinkedin} linkedin.com/in/sumit-kumbhkarn}}}
+\end{tabularx}
+% 01 End: My details
+
+
+% 02 Start: Skills section
+\section{Skills}
+\color[HTML]{1C033C}\textbf{Programming \& Web Development:} C, C++, Python, JavaScript, TypeScript, React, HTML, CSS, Bootstrap, Tailwind CSS, Express, PHP\\[3pt]
+\color[HTML]{1C033C}\textbf{Data, Databases \& Analytics:} SQL, MongoDB, MySQL, PostgreSQL, Power BI, DAX, R\\[3pt]
+\color[HTML]{1C033C}\textbf{AI, Tools \& Cloud:} OpenCV, MediaPipe, Supabase, Firebase, Git, GitHub, VS Code, Docker, AWS, Power Automate\\[1pt]
+% 02 End: Skills section
+
+% 03 Start: Work Experience
+
+\section{Work Experience}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\color[HTML]{1C033C} \textbf{{Accenture, Pune}} {\color[HTML]{371e77}[Packaged Application Developer]} \hfill \color[HTML]{371e77} Aug 2024 - Present \\[4pt]
+
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=2em, itemsep=2pt]
+        \item Developed Power BI dashboards using DAX, Python, and R, delivering KPI-driven insights through optimized data models and queries.
+        \item Automated reporting and business workflows using Power Automate, improving turnaround time and real-time visibility for clients.
+        \item Managed OnePlan and SharePoint environments, building custom pages, notifications, and JavaScript-based enhancements.
+    \end{itemize}
+\end{minipage}
+\end{tabularx}
+
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\color[HTML]{1C033C} \textbf{{Snap Pixel Solutions}} {\color[HTML]{371e77}[Full-Stack Developer (Freelance)]} \hfill \color[HTML]{371e77} Aug 2023 - Mar 2024 \\[4pt]
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=2em, itemsep=2pt]
+        \item Delivered end-to-end full-stack web applications for multiple clients, translating requirements into production-ready solutions. Deployed and maintained 3 live websites with ongoing support and performance optimizations. Used Firebase, MySQL, Git, GitHub
+    \end{itemize}
+\end{minipage}
+\end{tabularx}
+
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\color[HTML]{1C033C} \textbf{{PCET}} {\color[HTML]{371e77}[Web Developer Intern]} \hfill \color[HTML]{371e77} Oct 2022 - Jun 2023 \\[4pt]
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=2em, itemsep=2pt]
+        \item Built 2 responsive websites using HTML, CSS, JavaScript, Bootstrap, FileZilla and PHP, achieving sub-3-second load times. Deployed applications via FileZilla and collaborated with team members on feature implementation and issue resolution.
+        
+    \end{itemize}
+\end{minipage}
+\end{tabularx}
+
+% 03 End: Work Experience
+
+% 04 Start: Projects
+
+\section{Project Work}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=2em, itemsep=2pt]
+
+        \item \textbf{WalletLess: AI-Powered Smart Expense Tracker (2026)} 
+        \href{https://walletless.vercel.app/}{\textit{Project Link}}: 
+        Built a chat-driven expense tracking PWA with AI-based categorization, analytics, and spending insights. Implemented a responsive frontend using React, TypeScript, and Tailwind CSS, with Supabase for authentication, database, and real-time updates. Integrated Google Gemini for AI insights and enabled offline access and notifications via PWA features.
+
+        \item \textbf{TextMe: Real-Time Synced Clipboard PWA (2025)} 
+        \href{https://github.com/username/textme}{\textit{Project Link}}: 
+        Developed a real-time, multi-device clipboard and note-taking PWA with instant sync using Firebase Firestore and Authentication. Designed a mobile-first UI with Tailwind CSS, implemented folder-based organization and copy-to-clipboard, and enabled offline support through service workers.
+
+        \item \textbf{E-Voting System Using HAAR Algorithm and Blockchain (2023)} 
+        \href{https://github.com/as2504/E-VotingSystem}{\textit{GitHub Link}}: 
+        Implemented a secure electronic voting system using HAAR-based facial recognition for authentication and blockchain for immutable vote storage; achieved high accuracy in controlled tests and secured 1st place in an inter-college project competition.
+
+    \end{itemize}
+\end{minipage}
+\end{tabularx}\\[3pt]
+
+% 04 End: Projects
+
+
+% 05 Start: Education
+\section{Education}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\color[HTML]{1C033C} \textbf{PCCOE, Pune} & \hfill \color[HTML]{371e77} Aug 2020 - Jun 2024 \\
+\color[HTML]{371e77} B.Tech. in Computer Engineering & \hfill \color[HTML]{4B28A4} \textit{\textbf{CGPA: 8.19/10}} \\
+\multicolumn{1}{@{}X@{}}{}
+\end{tabularx}\\[1pt]
+
+% 05 End: Education
+
+
+% 06 Start: Certificates and Hobbies
+\section{Certificates, Awards and My Interests}
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=2em, itemsep=2pt]
+        \item \textbf{Microsoft Certifications:} Power BI Data Analyst Associate (data modeling, DAX, visualization, business analytics) and Azure AI Engineer Associate (designing and implementing AI solutions using Azure cognitive services).
+        \item \textbf{1st Prize – Inter-College Project Competition (2024):} Secured first place for the Final-Year Project.
+        \item \textbf{Honors Degree in Deep Learning (2024):} Completed an Honors program through the Computer Engineering Department alongside B.Tech coursework.
+        \item \textbf{Research Publication – IJSREM Journal (2023):} Published a paper on posture detection using computer vision techniques.
+        \item \textbf{2nd Prize – Startup Mania, Turflix (2022):} Secured second rank in a startup ideation competition organized by Anantya at PCCOE.
+        \item \textbf{Interests:} Cinema, Football, Independent development of self-help and productivity applications.
+    \end{itemize}
+\end{minipage}
+\end{tabularx}
+
+
+
+% 06 End: Certificates and Hobbies
+
+\end{document}
